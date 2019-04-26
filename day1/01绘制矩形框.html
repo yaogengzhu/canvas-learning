@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        canvas{
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <!-- canvas 画布默认是 300 X 150 notice：设置框宽高属性！在样式里设置 -->
+    <canvas id="canvas"></canvas>
+
+    <script>
+        // 获取画布 
+        var canvas = document.querySelector('canvas')
+        // 获取画笔（也就是获取上下文）
+        var ctx = canvas.getContext('2d')
+
+
+        /**
+         * 把线分成l0.5px 所以显示出来的是0.5px 所以变浅 ！ 显示无法显示0.5px 显示1px 所以产生的是灰色～～～ ----
+         * -- 解决方案 -- 前后移动0.5px
+         * 
+        */
+    </script>
+</body>
+</html>
