@@ -38,3 +38,5 @@
 - lighter 这个值与顺序无关，如果源与目标重叠，就将两者的颜色值想家。得到的颜色值的最大取值为255，结果就为白色。
 - copy 这个值与顺序无关，只绘制源，覆盖掉目标。
 - xor 这个值与顺序无关，只绘制出不重叠的源与目标区域。所有重叠的部分都变成透明的
+**动态图展示**
+!['show'](https://github.com/yaogengzhu/canvas-learning/blob/master/images/globalCompsiteOperation.gif?raw=true)
