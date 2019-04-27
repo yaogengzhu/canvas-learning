@@ -10,13 +10,11 @@
         canvas {
             border: 1px solid #ccc;
         }
-        button{
-            display: block;
-        }
     </style>
 </head>
 
 <body>
+    <h1>globalCompositeOperation</h1>
     <button>source-over</button>
     <button>destination-over</button>
     <button>source-atop</button>
@@ -28,7 +26,9 @@
     <button>lighter</button>
     <button>copy</button>
     <button>xor</button>
-    <canvas id="canvas" width="400" height="400"></canvas>
+    <div>
+        <canvas id="canvas" width="400" height="400"></canvas>
+    </div>
     <script>
         // globalCompositionOperation的默认值
         function getCanvas(property) {
@@ -38,13 +38,13 @@
             var ctx = canvas.getContext('2d')
             // 设置描边颜色 
             ctx.fillStyle = 'rgb(63,169,245)'
-            ctx.fillRect(50,50,100,100)
+            ctx.fillRect(50, 50, 100, 100)
 
             // 设置合成操作的属性 
             ctx.globalCompositeOperation = property
             // 设置填充颜色 
             ctx.fillStyle = 'rgb(255,123,172)'
-            ctx.fillRect(100,100,100,100)
+            ctx.fillRect(100, 100, 100, 100)
         }
 
         // 设置 source-over表示绘制在画布之上
@@ -64,13 +64,14 @@
 
         // })
         var btn = document.getElementsByTagName('button')
-        for(var i=0; i<btn.length; i++ ){
-            btn[i].addEventListener('click',function(){
+        for (var i = 0; i < btn.length; i++) {
+            btn[i].addEventListener('click', function () {
                 // console.log(this)
                 var str = this.innerHTML.toString()
                 getCanvas(str)
-            },true)
+            }, true)
         }
+        getCanvas('soure-over')
     </script>
 </body>
 
