@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        canvas {
+            border: 1px solid #ccc;
+        }
+        button{
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <button>source-over</button>
+    <button>destination-over</button>
+    <button>source-atop</button>
+    <button>destination-atop</button>
+    <button>source-in</button>
+    <button>destination-in</button>
+    <button>source-out</button>
+    <button>destination-out</button>
+    <button>lighter</button>
+    <button>copy</button>
+    <button>xor</button>
+    <canvas id="canvas" width="400" height="400"></canvas>
+    <script>
+        // globalCompositionOperation的默认值
+        function getCanvas(property) {
+            // 获取canvas 对象 
+            var canvas = document.getElementById('canvas')
+            // 获取上下文 
+            var ctx = canvas.getContext('2d')
+            // 设置描边颜色 
+            ctx.fillStyle = 'rgb(63,169,245)'
+            ctx.fillRect(50,50,100,100)
+
+            // 设置合成操作的属性 
+            ctx.globalCompositeOperation = property
+            // 设置填充颜色 
+            ctx.fillStyle = 'rgb(255,123,172)'
+            ctx.fillRect(100,100,100,100)
+        }
+
+        // 设置 source-over表示绘制在画布之上
+        // getCanvas('source-over')
+        // 设置 destination-over 大概的意思就是说。将这个绘制在画布上。其他的画面的下面
+        // getCanvas('destination-over')
+        // 设置 source-atop  减去了没有重叠的部分
+        // getCanvas('source-atop')
+        // 设置 destination-atop  与 source-atop 相反 
+        // getCanvas('destination-atop')
+        // btn1[0].addEventListener('click',function(){
+        //     var str = btn1.innerHTML.toString()
+        //     // console.log(str.toString())
+        //     getCanvas(str)  
+        // })
+        // btn[1].addEventListener('click',function(){
+
+        // })
+        var btn = document.getElementsByTagName('button')
+        for(var i=0; i<btn.length; i++ ){
+            btn[i].addEventListener('click',function(){
+                // console.log(this)
+                var str = this.innerHTML.toString()
+                getCanvas(str)
+            },true)
+        }
+    </script>
+</body>
+
+</html>

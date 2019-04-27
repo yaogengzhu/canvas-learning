@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        canvas{
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <script>
+        var canvas = document.querySelector('canvas')
+        var ctx = canvas.getContext('2d')
+       //  首先创建一个img元素 
+       var img = new Image()
+       // 由于图片是异步加载 ---- 首先需要等图加在完毕 
+       img.onload = function(){
+           // 
+           ctx.drawImage(img,20,20,200,200)
+       }
+       // 设置img 的src 属性 
+       img.src = 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1556342293130&di=58062f130f39a7ac8453fab60c714fa3&imgtype=0&src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farticle%2Fc8a8d37eb1401bfb021f30f423496ce6728f6d10.jpg'
+
+    </script>
+</body>
+</html>
