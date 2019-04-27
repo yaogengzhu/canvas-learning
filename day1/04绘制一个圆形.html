@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        canvas{
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <script>
+        var canvas = document.querySelector('canvas')
+        var ctx = canvas.getContext('2d')
+        // 开启新的路径
+        ctx.beginPath()
+        ctx.arc(50,90,40,0,2*Math.PI)
+        // 设置描边的颜色
+        ctx.strokeStyle = 'red'
+        // 描边
+        ctx.stroke()
+
+        // 绘制字体
+        ctx.font = '30px Arial'
+        ctx.fillText('helloworld',100,100)
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        canvas{
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <script>
+        var canvas = document.querySelector('canvas')
+        var ctx = canvas.getContext('2d')
+        // 设置字体
+        console.log(ctx)
+        var width = canvas.width
+        var height = canvas.height
+        ctx.font = '30px Arial'
+        // 字体颜色设置需要在绘图之前
+        ctx.fillStyle = 'red'
+        ctx.fillText('同一个世界，同一个梦想！',width/2-200-0.5,height/2-.05)
+    </script>
+</body>
+</html>
