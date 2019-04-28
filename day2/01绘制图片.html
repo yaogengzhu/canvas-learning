@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        canvas {
+            border: 1px solid #ccc;
+            background-color: pink;
+        }
+
+        div {
+            width: 200px;
+            height: 400px;
+            background-color: black;
+            color: #fff;
+            overflow: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" width="400" height="400"></canvas>
+
+
+
+    <!-- <script>
+        var canvas = document.getElementById('canvas')
+        var ctx = canvas.getContext('2d')
+        console.log(ctx)
+        // 创建一个图片元素 
+        var goodImg = new Image()
+        goodImg.onload = function () {
+            console.log('ok')
+            // 绘制img 
+            ctx.drawImage(0,0,goodImg)
+            // ctx.drawImage(10, 10, goodImg)
+        }
+        // 给img 添加src属性 。
+        goodImg.src = 'http://i1.go2yd.com/image.php?url=0IffEshyzX'
+
+    </script> -->
+
+    <script>
+        var canvas = document.getElementById('canvas')
+        var ctx = canvas.getContext('2d')
+        // 
+        // ctx.moveTo(10,20)
+        // ctx.lineTo(100,20 )
+        // ctx.stroke()
+        // 设置img 元素 
+        var img = new Image()
+        img.onload = function () {
+            // console.log(img)
+            // 设置起位置 
+            var imgX = 30
+            var imgY = 30
+            // 设置一个定时器 
+            var imgTimer = null
+            imgTimer = setInterval(() => {
+                if (imgY < 350) {
+                    imgY++;
+                }
+                ctx.clearRect(0, 0, 400, 400)
+                ctx.drawImage(img, imgX, imgY, 40, 40)
+            }, 10);
+            document.body.addEventListener('keydown', function () {
+                if (imgY > 40) {
+                    imgY -= 30
+                }
+                // clearInterval(imgTimer)
+            })
+            //调用绘图 
+           
+        }
+        img.src = 'https://avatars0.githubusercontent.com/u/42566669?s=460&v=4'
+
+        // 创建柱子 
+      
+        var clumunArr = []
+        function createClumu() {
+            // 设置一个定时器 
+            var clumunTimer = null
+            clumunTimer = setInterval(function(){
+                var clumun = {} // 创建一个对象 
+                clumun.imgA = new Image()
+                clumun.ImgB = new Image()
+                clumun.positionX = 400
+                clumun.positionY = Math.round(Math.random() * 100 + 100)
+                clumun.id = new Date().getTime()
+                clumun.imgA.src = './images/上.png'
+                clumun.ImgB.src = './images/下.png'
+                clumunArr.push(clumun)   
+                // console.log('ok')
+            },1500)   
+        }
+      
+        createClumu()
+        // 开始绘图 
+        function drawImg(){
+            // 调用创建的柱子
+            console.log(clumunArr)
+            // 循环柱子 
+            for(var i =0 ; i< clumunArr.length; i++){
+                console.log('ok')
+                console.log(clumunArr[i])
+            }
+        }
+        drawImg()
+    </script>
+</body>
+
+</html>
